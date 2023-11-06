@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 //konekcija sa bazom
-mongoose.connect('mongodb://localhost:27017/Lekarska_ordinacija');
+mongoose.connect('mongodb://localhost:27017/Lekarska_ordinacija'); //promeniti naziv baze podataka
 const connection = mongoose.connection;
 connection.once('open', ()=>{
     console.log('db connected');
