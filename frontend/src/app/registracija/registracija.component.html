@@ -1,0 +1,129 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" href="http://localhost:4200"
+                                style="color: white;">Početna</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!-- Body -->
+    <section>
+        <div class="container-fluid mb-5">
+            <div class="row">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form (ngSubmit)="posaljiZahtev()" enctype="multipart/form-data">
+
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registruj se</h2>
+
+                            <div class="form-outline mb-4">
+                                <div class="mb-4">
+                                    <img name="slika" src="../assets/default-profile.jpg"
+                                        style="width: 150px; height: 150px;" id="profilna-slika">
+                                </div>
+                                <input type="file" name="profilnaSlika" class="form-control form-control-lg"
+                                    id="profilna-slika-form" style="width: 100%;" (change)="postavi($event)">
+                                <label class="form-label" for="profilna-slika-form">Profilna slika</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_slika}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form2Example18" class="form-control form-control-lg"
+                                    [(ngModel)]="kor_ime" name="kor_ime_reg" (change)="proveriKorIme()">
+                                <label class="form-label" for="form2Example18">Korisničko ime</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_kor_ime}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="password" id="form2Example28" class="form-control form-control-lg"
+                                        [(ngModel)]="lozinka" name="lozinka_reg" (change)="proveriLoz()">
+                                    <label class="form-label" for="form2Example28">Lozinka</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_lozinka}}
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="password" id="form2Example29" class="form-control form-control-lg"
+                                        [(ngModel)]="lozinka_potvrda" name="lozinka_pot_reg" (change)="proveriPotLoz()">
+                                    <label class="form-label" for="form2Example29">Potvrdi lozinku</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_lozinka_pot}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example281" class="form-control form-control-lg"
+                                        [(ngModel)]="ime" name="ime_reg">
+                                    <label class="form-label" for="form2Example281">Ime</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example291" class="form-control form-control-lg"
+                                        [(ngModel)]="prezime" name="prezime_reg">
+                                    <label class="form-label" for="form2Example291">Prezime</label>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example282" class="form-control form-control-lg"
+                                        [(ngModel)]="adresa" name="adresa_reg">
+                                    <label class="form-label" for="form2Example282">Adresa</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example292" class="form-control form-control-lg"
+                                        [(ngModel)]="telefon" name="tel_reg" (change)="proveriTelefon()">
+                                    <label class="form-label" for="form2Example292">Telefon (000/000000x)</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_telefon}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="mail" id="form2Example181" class="form-control form-control-lg"
+                                    [(ngModel)]="imejl" name="mejl_reg" (change)="proveriMejl()">
+                                <label class="form-label" for="form2Example181">Mejl</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_mejl}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4" style="color: red;">
+                                {{poruka_podaci}}
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block" type="submit">
+                                    Posalji zahtev
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

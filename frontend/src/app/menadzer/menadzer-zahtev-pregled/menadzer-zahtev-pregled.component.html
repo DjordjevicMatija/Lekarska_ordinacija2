@@ -1,0 +1,230 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer']"
+                                style="color: white;">Korisnici</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-registracija']"
+                                style="color: white;">Zahtevi za registraciju</a>
+                        </li>
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-pregledi']"
+                                style="color: rgba(0, 0, 0, 0.6);">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/promocije']"
+                                style="color: white;">Promocije</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Novi pregledi-->
+        <div class="container align-items-center my-4">
+            <h2 class="my-4">Zahtevi za nove preglede</h2>
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Naziv pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Specijalizacija
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Odobri pregled
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Odbij pregled
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let z of sviZahtevi">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.naziv}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.specijalizacija}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="odobriPregled(z)">Odobri pregled</button>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="odbijPregled(z)">Odbij pregled</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Nova specijalizacija-->
+        <div class="container-sm align-items-center mt-4">
+            <div class="row">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form>
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Dodaj novu specijalizaciju</h2>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="specijalizacija" class="form-control form-control-lg"
+                                    name="specijalizacija" [(ngModel)]="specijalizacija" style="width: 100%;">
+                                <label class="form-label" for="specijalizacija">Naziv specijalizacije</label>
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block" (click)="dodajSpecijalizaciju()">
+                                    Dodaj
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Pregledi-->
+        <div class="container-sm align-items-center mb-4">
+            <!--Specijalizacije-->
+            <div class="row">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form>
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Pregledi</h2>
+
+                            <div class="form-outline my-4">
+                                <select class="form-select form-select-lg" aria-label="Large select example"
+                                    [(ngModel)]="izabranaSpecijalizacija" id="spec" name="spec"
+                                    (change)="prikaziPreglede()">
+                                    <option disabled [ngValue]="" selected>Specijalizacije</option>
+                                    <option *ngFor="let s of sveSpecijalizacije" [ngValue]="s.naziv">
+                                        {{s.naziv}}
+                                    </option>
+                                </select>
+                                <label class="form-label" for="spec">Specijalizacija</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Tabela-->
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Naziv pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Specijalizacija
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Trajanje pregleda (min)
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Cena pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Izmeni pregled
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Obrisi pregled
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of preglediSpec">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.naziv}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.specijalizacija}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.trajanje_u_min}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.cena}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="izmeniPregled(p)">Izmeni pregled</button>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="obrisiPregled(p)">Obriši pregled</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--Novi pregled-->
+            <div class="row" [hidden]="!specijalizacijaIzabrana">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form>
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                Dodaj novi pregled za specijalizaciju {{izabranaSpecijalizacija}}
+                            </h2>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="specijalizacija" class="form-control form-control-lg"
+                                    name="specijalizacija" [(ngModel)]="pregled" style="width: 100%;"
+                                    (change)="postaviNaziv()">
+                                <label class="form-label" for="specijalizacija">Naziv pregleda</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="number" id="trajanje" class="form-control form-control-lg"
+                                    name="trajanje" [(ngModel)]="trajanje" style="width: 100%;"
+                                    (change)="proveriTrajanje()">
+                                <label class="form-label" for="trajanje">Trajanje (min)</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_trajanje}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="number" id="cena" class="form-control form-control-lg"
+                                    name="cena" [(ngModel)]="cena" style="width: 100%;"
+                                    (change)="proveriCenu()">
+                                <label class="form-label" for="cena">Cena</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_cena}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4" style="color: red;">
+                                {{poruka_pregled}}
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block" (click)="dodajPregled()">
+                                    Dodaj
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

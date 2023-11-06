@@ -1,0 +1,244 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" href="http://localhost:4200"
+                                style="color: white;">Početna</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" data-bs-toggle="modal" data-bs-target="#prijava">Uloguj
+                                se</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" [routerLink]="['/registracija']">Registruj se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Prijava-->
+    <div class="modal fade" id="prijava" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card-body p-5 text-center" style="background-color: #ECEFF1;">
+                        <h3 class="mb-5">Uloguj se</h3>
+                        <div class="form-outline mb-4">
+                            <input type="text" id="kor_ime" class="form-control form-control-lg" [(ngModel)]="kor_ime">
+                            <label class="form-label" for="kor_ime">Korisničko ime</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="password" id="lozinka" class="form-control form-control-lg"
+                                [(ngModel)]="lozinka">
+                            <label class="form-label" for="lozinka">Lozinka</label>
+                        </div>
+                        <div class="form-outline mb-4" style="color: red;">
+                            {{poruka}}
+                        </div>
+                        <button id="zatvoriModal" class="btn btn-secondary btn-lg btn-block mx-3"
+                            data-bs-dismiss="modal" (click)="clear()">Odustani</button>
+                        <button id="ulogujSe" class="btn btn-primary btn-lg btn-block" (click)="ulogujSe()">Uloguj
+                            se</button>
+                        <div class="form-outline mt-5">
+                            <a href="/prijavaMenadzer" class="btn btn-light btn-outline-secondary">Prijavi se kao
+                                menadzer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body -->
+    <section>
+        <!-- Naslov -->
+        <div class="container-sm align-items-center mt-5">
+            <h1 style="color: #21D192;" class="display-4">Lekarska ordinacija Viva Medical</h1>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 17%; background-color: #7c4dff; height: 2px" />
+        </div>
+        <!-- Carousel -->
+        <div class="container-sm align-items-center my-5" style="width: 40%;">
+            <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-center"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img src="../assets/1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="../assets/2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="../assets/3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="../assets/4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="../assets/5.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- O nama -->
+        <div class="container align-items-center my-2">
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Dobrodošli u Viva Medical – inovativnu lekarsku ordinaciju koja stavlja vaše zdravlje i dobrobit na prvo
+                mesto.
+                Naša ordinacija je osmišljena s ciljem da pruži pacijentima visokokvalitetnu medicinsku negu uz naglasak
+                na
+                personalizovanom pristupu i najnovijim tehnološkim rešenjima. U Viva Medical-u, verujemo da svako
+                zaslužuje
+                pažljivo osmišljen plan zdravstvene nege koji odražava individualne potrebe i životni stil svakog
+                pacijenta.
+            </p>
+        </div>
+        <br>
+        <div class="container align-items-center">
+            <div class="row">
+                <div class="col my-2">
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Naš stručni tim lekara, medicinskih sestara i terapeuta posvećen je pružanju najboljih
+                        medicinskih usluga
+                        u udobnom i podržavajućem okruženju. Bez obzira da li vam je potrebna redovna kontrola,
+                        dijagnostika,
+                        preventivna nega ili lečenje specifičnih zdravstvenih stanja, Viva Medical je tu da vas vodi
+                        kroz svaki
+                        korak vašeg zdravstvenog puta.
+                    </p>
+                </div>
+                <div class="col my-2">
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Želimo da naša ordinacija bude više od običnog medicinskog centra. Nudimo vam pristup najnovijim
+                        medicinskim
+                        istraživanjima, edukativnim resursima o zdravlju i wellnessu, kako bismo vam omogućili
+                        informisane odluke
+                        o vašoj nezi. Naša misija je da unapredimo kvalitet života naših pacijenata pružajući im
+                        sveobuhvatnu
+                        podršku za očuvanje zdravlja i vitalnosti.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Pretraga-->
+        <div class="container-sm align-items-center my-4">
+            <div class="row g-3">
+                <div class="col-sm-2">
+                    Pretraga lekara:
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Ime" aria-label="Ime" [(ngModel)]="ime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Prezime" aria-label="Prezime"
+                        [(ngModel)]="prezime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Specijalizacija" aria-label="Specijalizacija"
+                        [(ngModel)]="specijalizacija">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-light" (click)="pretraga()">Pretraži</button>
+                </div>
+            </div>
+        </div>
+        <!--Tabela-->
+        <div class="container align-items-center">
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">Slika</th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ime
+                            <button class="btn" (click)="sortImeAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortImeDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prezime
+                            <button class="btn" (click)="sortPrezimeAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortPrezimeDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Specijalizacija
+                            <button class="btn" (click)="sortSpecAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortSpecDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let l of prikazaniLekari">
+                        <td style="text-align: center; vertical-align: middle;">
+                            <img [src]="l.slika" alt="Profilna slika" style="width:100px; height:100px;">
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">{{l.ime}}</td>
+                        <td style="text-align: center; vertical-align: middle;">{{l.prezime}}</td>
+                        <td style="text-align: center; vertical-align: middle;">{{l.specijalizacija}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

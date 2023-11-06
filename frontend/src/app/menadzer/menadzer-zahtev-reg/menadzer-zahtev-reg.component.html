@@ -1,0 +1,115 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer']"
+                                style="color: white;">Korisnici</a>
+                        </li>
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-registracija']"
+                                style="color: rgba(0, 0, 0, 0.6);">Zahtevi za registraciju</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/promocije']"
+                                style="color: white;">Promocije</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Tabela-->
+        <div class="container align-items-center my-4">
+            <h2 class="my-4">Zahtevi za registraciju</h2>
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Slika
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Korisničko ime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prezime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Adresa
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Telefon
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Mejl
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prihvati
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Odbaci
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let z of sviZahtevi">
+                        <td style="text-align: center; vertical-align: middle;">
+                            <img [src]="z.slika" alt="Profilna slika" style="width:100px; height:100px;">
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.kor_ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.prezime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.adresa}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.telefon}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.imejl}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="prihvatiZahtev(z)">Prihvati zahtev</button>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="odbaciZahtev(z)">Odbaci zahtev</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

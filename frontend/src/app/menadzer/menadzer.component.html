@@ -1,0 +1,269 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer']"
+                                style="color: rgba(0, 0, 0, 0.6);">Korisnici</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-registracija']"
+                                style="color: white;">Zahtevi za registraciju</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/promocije']"
+                                style="color: white;">Promocije</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Dodavanje novog lekara-->
+        <div class="container-sm align-items-center mt-4">
+
+            <button class="btn btn-secondary" (click)="dodavanjeLekara()" [hidden]="noviLekarForma">
+                Dodaj novog lekara
+            </button>
+
+            <div class="row" [hidden]="!noviLekarForma">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form (ngSubmit)="dodajLekara()" enctype="multipart/form-data">
+
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                Profil lekara
+                            </h2>
+
+                            <div class="form-outline mb-4">
+                                <div class="mb-4">
+                                    <img name="slika" src="../assets/default-profile.jpg"
+                                        style="width: 150px; height: 150px;" id="profilna-slika">
+                                </div>
+                                <input type="file" name="profilnaSlika" class="form-control form-control-lg"
+                                    id="profilna-slika-form" style="width: 100%;" (change)="postavi($event)">
+                                <label class="form-label" for="profilna-slika-form">Profilna slika</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_slika}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form2Example18" class="form-control form-control-lg"
+                                    [(ngModel)]="kor_imeLekar" name="kor_ime_reg" (change)="proveriKorIme()">
+                                <label class="form-label" for="form2Example18">Korisničko ime</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_kor_ime}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="password" id="form2Example28" class="form-control form-control-lg"
+                                        [(ngModel)]="lozinkaLekar" name="lozinka_reg" (change)="proveriLoz()">
+                                    <label class="form-label" for="form2Example28">Lozinka</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_lozinka}}
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="password" id="form2Example29" class="form-control form-control-lg"
+                                        [(ngModel)]="lozinka_potvrdaLekar" name="lozinka_pot_reg"
+                                        (change)="proveriPotLoz()">
+                                    <label class="form-label" for="form2Example29">Potvrdi lozinku</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_lozinka_pot}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example281" class="form-control form-control-lg"
+                                        [(ngModel)]="imeLekar" name="ime_reg">
+                                    <label class="form-label" for="form2Example281">Ime</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example291" class="form-control form-control-lg"
+                                        [(ngModel)]="prezimeLekar" name="prezime_reg">
+                                    <label class="form-label" for="form2Example291">Prezime</label>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example282" class="form-control form-control-lg"
+                                        [(ngModel)]="adresaLekar" name="adresa_reg">
+                                    <label class="form-label" for="form2Example282">Adresa</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example292" class="form-control form-control-lg"
+                                        [(ngModel)]="telefonLekar" name="tel_reg" (change)="proveriTelefon()">
+                                    <label class="form-label" for="form2Example292">Telefon (000/000000x)</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_telefon}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="mail" id="form2Example181" class="form-control form-control-lg"
+                                    [(ngModel)]="imejlLekar" name="mejl_reg" (change)="proveriMejl()">
+                                <label class="form-label" for="form2Example181">Mejl</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_mejl}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="formLicenca" class="form-control form-control-lg"
+                                    [(ngModel)]="licencaLekar" name="mejl_reg" (change)="proveriLicencu()">
+                                <label class="form-label" for="formLicenca">Licenca</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_licenca}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <select class="form-select form-select-lg" id="specijalizacija_men"
+                                    [(ngModel)]="specijalizacijaLekar" name="specijalizacija_men">
+                                    <option disabled [ngValue]="" selected>Specijalizacije</option>
+                                    <option *ngFor="let s of sveSpecijalizacije" [ngValue]="s.naziv">
+                                        {{s.naziv}}
+                                    </option>
+                                </select>
+                                <label class="form-label" for="specijalizacija_men">Specijalizacija</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="ogranak_men" class="form-control form-control-lg"
+                                    [(ngModel)]="ogranakLekar" name="mejl_reg" (change)="postaviOgranak()">
+                                <label class="form-label" for="ogranak_men">Ogranak</label>
+                            </div>
+
+                            <div class="form-outline mb-4" style="color: red;">
+                                {{poruka_podaci}}
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block" type="submit">
+                                    Dodaj lekara
+                                </button>
+                                <button class="btn btn-secondary btn-lg btn-block ms-2" (click)="otkazi()"
+                                    type="button">
+                                    Otkazi
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Pretraga-->
+        <div class="container-sm align-items-center my-4">
+            <div class="row g-3">
+                <div class="col-sm-2">
+                    Pretraga korisnika:
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="kor_ime" class="form-control" placeholder="Korisničko ime"
+                        aria-label="Kor_ime" [(ngModel)]="kor_ime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="ime" class="form-control" placeholder="Ime" aria-label="Ime"
+                        [(ngModel)]="ime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="prezime" class="form-control" placeholder="Prezime" aria-label="Prezime"
+                        [(ngModel)]="prezime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="tip" class="form-control" placeholder="Tip" aria-label="Tip"
+                        [(ngModel)]="tip">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-light" (click)="pretraga()">Pretraži</button>
+                </div>
+            </div>
+        </div>
+        <!--Tabela-->
+        <div class="container align-items-center my-4">
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Slika
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Korisničko ime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prezime
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Tip
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ažuriraj profil
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Obriši profil
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let k of prikazaniKorisnici">
+                        <td style="text-align: center; vertical-align: middle;">
+                            <img [src]="k.slika" alt="Profilna slika" style="width:100px; height:100px;">
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{k.kor_ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{k.ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{k.prezime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{k.tip}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="azurirajKorisnika(k)">Ažuriraj profil</button>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="obrisiKorisnika(k)">Obriši profil</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

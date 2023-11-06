@@ -1,0 +1,166 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent']"
+                                style="color: white;">Profil</a>
+                        </li>
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/lekari']"
+                                style="color: rgba(0, 0, 0, 0.6);">Lekari</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/obavestenja']"
+                                style="color: white;">Obaveštenja</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Pretraga-->
+        <div class="container-sm align-items-center my-4">
+            <div class="row g-3">
+                <div class="col-sm-2">
+                    Pretraga lekara:
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Ime" aria-label="Ime" [(ngModel)]="ime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Prezime" aria-label="Prezime"
+                        [(ngModel)]="prezime">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Specijalizacija" aria-label="Specijalizacija"
+                        [(ngModel)]="specijalizacija">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Ogranak" aria-label="Ogranak"
+                        [(ngModel)]="ogranak">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-light" (click)="pretraga()">Pretraži</button>
+                </div>
+            </div>
+        </div>
+        <!--Tabela-->
+        <div class="container align-items-center">
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">Slika</th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ime
+                            <button class="btn" (click)="sortImeAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortImeDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prezime
+                            <button class="btn" (click)="sortPrezimeAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortPrezimeDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Specijalizacija
+                            <button class="btn" (click)="sortSpecAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortSpecDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ogranak
+                            <button class="btn" (click)="sortOgranakAsc()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                            </button>
+                            <button class="btn" (click)="sortOgranakDes()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let l of prikazaniLekari">
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziProfil(l)">
+                            <img [src]="l.slika" alt="Profilna slika" style="width:100px; height:100px;">
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziProfil(l)">{{l.ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziProfil(l)">
+                            {{l.prezime}}</td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziProfil(l)">
+                            {{l.specijalizacija}}</td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziProfil(l)">
+                            {{l.ogranak}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

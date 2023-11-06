@@ -1,0 +1,147 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent']"
+                                style="color: white;">Profil</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/lekari']"
+                                style="color: white;">Lekari</a>
+                        </li>
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/pregledi']"
+                                style="color: rgba(0, 0, 0, 0.6);">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/obavestenja']"
+                                style="color: white;">Obaveštenja</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Pregledi-->
+        <div class="container align-items-center">
+            <h2 class="my-4">Pregledi</h2>
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Naziv pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Datum i vreme
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Ogranak
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Lekar
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Otkaži pregled
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let z of zakazaniPregledi">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.pregled}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.formatiran_datum}} {{z.formatirano_vreme}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.ogranak}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{z.ime_lekara}} {{z.prezime_lekara}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" (click)="otkaziPregled(z)">Otkaži</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Izvestaji-->
+        <div class="container align-items-center">
+            <h2 class="my-4">Izvestaji</h2>
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Datum i vreme
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Lekar
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Specijalizacija lekara
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Razlog dolaska
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Dijagnoza
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Terapija
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Datum narednog pregleda
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of izvestaji">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.formatiran_datum}} {{i.formatirano_vreme}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.ime_lekara}} {{i.prezime_lekara}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.specijalizacija}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.razlog_dolaska}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.dijagnoza}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.terapija}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{i.formatiran_datum_naredni}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

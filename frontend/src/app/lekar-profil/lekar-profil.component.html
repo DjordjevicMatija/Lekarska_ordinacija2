@@ -1,0 +1,147 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent']"
+                                style="color: white;">Profil</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/lekari']"
+                                style="color: white;">Lekari</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/pacijent/obavestenja']"
+                                style="color: white;">Obaveštenja</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" [routerLink]="['/promenaLozinke']">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Zakazi pregled-->
+    <div class="modal fade" id="zakazivanje" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card-body p-5 text-center" style="background-color: #ECEFF1;">
+                        <h3 class="mb-5">Zakaži pregled</h3>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="naziv" class="form-control form-control-lg"
+                                value="{{izabranPregled.naziv}}" style="text-align: center;" disabled>
+                            <label class="form-label" for="naziv">Naziv pregleda</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="datetime-local" id="datum_vreme" class="form-control form-control-lg"
+                                [(ngModel)]="datumZakazivanjaString" style="text-align: center;">
+                            <label class="form-label" for="datum_vreme">Datum i vreme</label>
+                        </div>
+                        <button id="zatvoriModal" class="btn btn-secondary btn-lg btn-block mx-3"
+                            data-bs-dismiss="modal" (click)="clear()">Odustani</button>
+                        <button id="ulogujSe" class="btn btn-primary btn-lg btn-block"
+                            (click)="zakazi()">Zakaži</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body -->
+    <section>
+        <!--Lekar-->
+        <div class="container align-items-center">
+            <table class="table my-4" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">Slika</th>
+                        <th style="text-align: center; vertical-align: middle;">Ime</th>
+                        <th style="text-align: center; vertical-align: middle;">Prezime</th>
+                        <th style="text-align: center; vertical-align: middle;">Broj licence</th>
+                        <th style="text-align: center; vertical-align: middle;">Specijalizacija</th>
+                        <th style="text-align: center; vertical-align: middle;">Ogranak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <img [src]="lekar.slika" alt="Profilna slika" style="width:100px; height:100px;">
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{lekar.ime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{lekar.prezime}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{lekar.licenca}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{lekar.specijalizacija}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{lekar.ogranak}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Pregledi-->
+        <div class="container align-items-center">
+            <h2>Pregledi</h2>
+            <table class="table table-bordered my-4" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">Naziv pregleda</th>
+                        <th style="text-align: center; vertical-align: middle;">Trajanje (min)</th>
+                        <th style="text-align: center; vertical-align: middle;">Cena</th>
+                        <th style="text-align: center; vertical-align: middle;">Zakaži</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of pregledi">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.naziv}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.trajanje_u_min}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.cena}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#zakazivanje"
+                                (click)="izaberiPregled(p)">
+                                Zakaži
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

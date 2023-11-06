@@ -1,0 +1,205 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar']"
+                                style="color: rgba(0, 0, 0, 0.6);">Profil</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar/pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar/razno']"
+                                style="color: white;">Razno</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Profil-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form (ngSubmit)="posaljiZahtev()" enctype="multipart/form-data">
+                            <div>
+                                <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                    Profil
+                                    <button class="btn" type="button" (click)="izmena()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <div class="mb-4">
+                                    <img name="slika" [src]="ulogovanKorisnik.slika" style="width: 150px; height: 150px;"
+                                        id="profilna-slika">
+                                </div>
+                                <input type="file" name="profilnaSlika" class="form-control form-control-lg"
+                                    id="profilna-slika-form" style="width: 100%;" (change)="postavi($event)"
+                                    [hidden]="!azuriranje">
+                                <label class="form-label" for="profilna-slika">Profilna slika</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_slika}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example281" class="form-control form-control-lg"
+                                        [(ngModel)]="ulogovanKorisnik.ime" name="ime_reg" [disabled]="!azuriranje"
+                                        (change)="proveriPraznoPolje()">
+                                    <label class="form-label" for="form2Example281">Ime</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example291" class="form-control form-control-lg"
+                                        [(ngModel)]="ulogovanKorisnik.prezime" name="prezime_reg" [disabled]="!azuriranje"
+                                        (change)="proveriPraznoPolje()">
+                                    <label class="form-label" for="form2Example291">Prezime</label>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4 row">
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example282" class="form-control form-control-lg"
+                                        name="adresa_reg" [(ngModel)]="ulogovanKorisnik.adresa" [disabled]="!azuriranje"
+                                        (change)="proveriPraznoPolje()">
+                                    <label class="form-label" for="form2Example282">Adresa</label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="form2Example292" class="form-control form-control-lg"
+                                        name="telefon_reg" [(ngModel)]="ulogovanKorisnik.telefon" [disabled]="!azuriranje"
+                                        (change)="proveriTelefon()">
+                                    <label class="form-label" for="form2Example292">Telefon</label>
+                                    <div class="form-outline mb-4" style="color: red;">
+                                        {{poruka_telefon}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="mail" id="form2Example181" class="form-control form-control-lg"
+                                    name="mejl_reg" [(ngModel)]="ulogovanKorisnik.imejl" disabled>
+                                <label class="form-label" for="form2Example181">Mejl</label>
+                            </div>
+
+                            <div class="form-outline mb-4" *ngIf="ulogovanKorisnik.tip == 'lekar'">
+                                <input type="text" id="form2Example1811" class="form-control form-control-lg"
+                                    name="licenca_reg" [(ngModel)]="ulogovanKorisnik.licenca" [disabled]="!azuriranje"
+                                    (change)="proveriLicencu()">
+                                <label class="form-label" for="form2Example1811">Licenca</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_licenca}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4" *ngIf="ulogovanKorisnik.tip == 'lekar'">
+                                <select class="form-select form-select-lg" [disabled]="!azuriranje"
+                                    [(ngModel)]="ulogovanKorisnik.specijalizacija" name="specdijalizacija_men">
+                                    <option selected>{{ulogovanKorisnik.specijalizacija}}</option>
+                                    <ng-container *ngFor="let s of sveSpecijalizacije">
+                                        <option [ngValue]="s.naziv" *ngIf="s.naziv != ulogovanKorisnik.specijalizacija">
+                                            {{s.naziv}}
+                                        </option>
+                                    </ng-container>
+                                </select>
+                                <label class="form-label" for="form2Example1812">Specijalizacija</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form2Example1813" class="form-control form-control-lg"
+                                    name="ogranak_reg" [(ngModel)]="ulogovanKorisnik.ogranak" disabled>
+                                <label class="form-label" for="form2Example1813">Ogranak</label>
+                            </div>
+
+                            <div class="form-outline mb-4" style="color: red;">
+                                {{poruka_podaci}}
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block me-2" type="submit"
+                                    [hidden]="!azuriranje">
+                                    Sacuvaj izmene
+                                </button>
+                                <button class="btn btn-secondary btn-lg btn-block ms-2" (click)="otkazi()"
+                                    [hidden]="!azuriranje" type="button">
+                                    Otkazi
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Izbor pregleda-->
+        <div class="container align-items-center">
+            <h2 class="my-4">Pregledi</h2>
+            <table class="table table-bordered mb-5" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Naziv pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Obavljaj pregled
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Prekini obavljanje pregleda
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of vrstePregleda">
+                        <td style="text-align: center; vertical-align: middle;">
+                            {{p.naziv}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" *ngIf="!p.lekari.includes(ulogovanKorisnik.licenca)"
+                                (click)="dodajPregled(p)">
+                                Obavljaj pregled
+                            </button>
+                            <span *ngIf="p.lekari.includes(ulogovanKorisnik.licenca)">Obavljate pregled</span>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <button class="btn btn-secondary" *ngIf="p.lekari.includes(ulogovanKorisnik.licenca)"
+                                (click)="izbaciPregled(p)">
+                                Prekini obavljanje pregleda
+                            </button>
+                            <span *ngIf="!p.lekari.includes(ulogovanKorisnik.licenca)">Ne obavljate pregled</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>

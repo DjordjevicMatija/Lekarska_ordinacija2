@@ -1,0 +1,134 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar']"
+                                style="color: white;">Profil</a>
+                        </li>
+                        <li class="nav-item active mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar/pregledi']"
+                                style="color: rgba(0, 0, 0, 0.6);">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/lekar/razno']"
+                                style="color: white;">Razno</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <!--Naredni pregledi-->
+        <div class="container align-items-center">
+            <h2 class="my-4">Pregledi</h2>
+            <table class="table table-bordered" id="sortTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Naziv pregleda
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Datum i vreme
+                        </th>
+                        <th style="text-align: center; vertical-align: middle;">
+                            Otkaži pregled
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of zakazaniPregledi | slice:0:3">
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziKarton(p)">
+                            {{p.pregled}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziKarton(p)">
+                            {{p.formatiran_datum}} {{p.formatirano_vreme}}
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;" (click)="prikaziKarton(p)">
+                            <button class="btn btn-secondary">Otkaži</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Unos izvestaja-->
+        <div class="container align-items-center">
+            <div class="row">
+                <div class="col-sm-12 text-black">
+                    <div>
+                        <form>
+                            <div class="form-outline my-4">
+                                <h2 class="my-4">Unos izveštaja</h2>
+
+                                <select class="form-select form-select-lg" aria-label="Large select example"
+                                    [(ngModel)]="izabran_pregled" id="pregled" name="pregled">
+                                    <option value="" disabled selected>Izaberite pregled</option>
+                                    <option *ngFor="let p of preglediBezIzvestaja" [ngValue]="p">
+                                        <table>
+                                            <tr>
+                                                <td>{{p.pregled}} </td>
+                                                <td>{{p.formatiran_datum}} {{p.formatirano_vreme}}</td>
+                                            </tr>
+                                        </table>
+                                    </option>
+                                </select>
+                                <label class="form-label" for="pregled">Pregled</label>
+                            </div>
+
+                            <div class="form-outline my-4">
+                                <textarea spellcheck="false" class="form-control" name="razlog_dolaska" id="razlog_dolaska" rows="3"
+                                    placeholder="Razlog dolaska:" style="font-size: 20px;"
+                                    [(ngModel)]="razlog_dolaska"></textarea>
+                                <label class="form-label" for="razlog_dolaska">Razlog dolaska</label>
+                            </div>
+
+                            <div class="form-outline my-4">
+                                <textarea spellcheck="false" class="form-control" name="dijagnoza" id="dijagnoza" rows="3"
+                                    placeholder="Dijagnoza:" style="font-size: 20px;"
+                                    [(ngModel)]="dijagnoza"></textarea>
+                                <label class="form-label" for="dijagnoza">Dijagnoza</label>
+                            </div>
+
+                            <div class="form-outline my-4">
+                                <textarea spellcheck="false" class="form-control" name="terapija" id="terapija" rows="3"
+                                    placeholder="Terapija:" style="font-size: 20px;" [(ngModel)]="terapija"></textarea>
+                                <label class="form-label" for="terapija">Terapija</label>
+                            </div>
+
+                            <div class="form-outline mb-4" style="width: 30%;">
+                                <input type="datetime-local" id="datum_vreme" name="datum_vreme" class="form-control form-control-lg"
+                                    [(ngModel)]="datum_np_string" style="text-align: center;">
+                                <label class="form-label" for="datum_vreme">Datum i vreme</label>
+                            </div>
+
+                            <button class="btn btn-secondary mb-4" (click)="unesiIzvestaj()">
+                                Zakaži
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>

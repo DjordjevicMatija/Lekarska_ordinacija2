@@ -1,0 +1,97 @@
+<body style="background-color: #ECEFF1; font-family: Karla; font-size: 20px; font-weight: 400;">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21D192;">
+            <div class="container-fluid" style="background-color: #21D192">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                    <li class="nav-item mx-sm-2 mb-2 me-auto">Viva Medical</li>
+                </ul>
+                <div class="collapse navbar-collapse pb-2" id="navbarExample01" style="font-size: 20px;">
+                    <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer']"
+                                style="color: white;">Korisnici</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-registracija']"
+                                style="color: white;">Zahtevi za registraciju</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/zahtev-pregledi']"
+                                style="color: white;">Pregledi</a>
+                        </li>
+                        <li class="nav-item mx-sm-2">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/menadzer/promocije']"
+                                style="color: white;">Promocije</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right mt-2">
+                        <li>
+                            <a class="btn btn-light mx-sm-2 my-2" routerLink="/promenaLozinke">Promeni lozinku</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-secondary mx-sm-2 my-2" (click)="odjaviSe()">Odjavi se</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <section>
+        <div class="container-sm align-items-center mt-4">
+            <div class="row">
+                <div class="col-sm-6 text-black">
+                    <div class="d-flex align-items-center h-custom-2 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form>
+                            <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                Ažuriraj pregled ({{pregled.specijalizacija}})
+                            </h2>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="naziv" class="form-control form-control-lg"
+                                    name="naziv" [(ngModel)]="pregled.naziv" style="width: 100%;"
+                                    (change)="postaviNaziv()">
+                                <label class="form-label" for="naziv">Naziv pregleda</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="number" id="trajanje" class="form-control form-control-lg"
+                                    name="trajanje" [(ngModel)]="pregled.trajanje_u_min" style="width: 100%;"
+                                    (change)="proveriTrajanje()">
+                                <label class="form-label" for="trajanje">Trajanje (min)</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_trajanje}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="number" id="cena" class="form-control form-control-lg"
+                                    name="cena" [(ngModel)]="pregled.cena" style="width: 100%;"
+                                    (change)="proveriCenu()">
+                                <label class="form-label" for="cena">Cena</label>
+                                <div class="form-outline mb-4" style="color: red;">
+                                    {{poruka_cena}}
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4" style="color: red;">
+                                {{poruka_pregled}}
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-secondary btn-lg btn-block" (click)="azurirajPregled()">
+                                    Ažuriraj
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
