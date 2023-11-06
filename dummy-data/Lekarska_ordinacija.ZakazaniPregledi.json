@@ -1,0 +1,137 @@
+[{
+  "_id": {
+    "$oid": "64f873e2383729563741214f"
+  },
+  "pacijent": "milan92",
+  "lekar": "567890",
+  "ime_lekara": "Ivana",
+  "prezime_lekara": "Ivić",
+  "ogranak": "pedijatrija",
+  "pregled": "Redovan pedijatrijski pregled",
+  "pocetak_pregleda": {
+    "$date": "2023-09-07T06:00:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-07T06:30:00.000Z"
+  },
+  "__v": 0,
+  "ima_izvestaj": true
+},
+{
+  "_id": {
+    "$oid": "64f87a88383729563741215e"
+  },
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović",
+  "ogranak": "kardiologija",
+  "pregled": "Ehokardiografija (ultrazvuk srca)",
+  "pocetak_pregleda": {
+    "$date": "2023-09-06T18:15:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-06T19:00:00.000Z"
+  },
+  "__v": 0,
+  "ima_izvestaj": false
+},
+{
+  "_id": {
+    "$oid": "64f9cda27df9f8c8a89c0588"
+  },
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović",
+  "ogranak": "kardiologija",
+  "pregled": "Ehokardiografija (ultrazvuk srca)",
+  "pocetak_pregleda": {
+    "$date": "2023-09-05T13:20:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-05T14:05:00.000Z"
+  },
+  "__v": 0,
+  "ima_izvestaj": true
+},
+{
+  "_id": {
+    "$oid": "65098efbee3783fb136c0cea"
+  },
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović",
+  "ogranak": "kardiologija",
+  "pregled": "Ehokardiografija (ultrazvuk srca)",
+  "pocetak_pregleda": {
+    "$date": "2023-09-30T13:10:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-30T13:55:00.000Z"
+  },
+  "ima_izvestaj": false,
+  "cena": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650adf78c6e60f644bae3611"
+  },
+  "pacijent": "miki",
+  "lekar": "567890",
+  "ime_lekara": "Ivana",
+  "prezime_lekara": "Ivić",
+  "ogranak": "pedijatrija",
+  "pregled": "Redovan pedijatrijski pregled",
+  "pocetak_pregleda": {
+    "$date": "2023-09-25T13:00:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-25T13:30:00.000Z"
+  },
+  "ima_izvestaj": false,
+  "cena": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650ae264c6e60f644bae3650"
+  },
+  "pacijent": "miki",
+  "lekar": "567890",
+  "ime_lekara": "Ivana",
+  "prezime_lekara": "Ivić",
+  "ogranak": "pedijatrija",
+  "pregled": "Redovan pedijatrijski pregled",
+  "pocetak_pregleda": {
+    "$date": "2023-09-22T12:15:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-09-22T12:45:00.000Z"
+  },
+  "ima_izvestaj": false,
+  "cena": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651729c885ef82982b1845d0"
+  },
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović",
+  "ogranak": "kardiologija",
+  "pregled": "Ehokardiografija (ultrazvuk srca)",
+  "pocetak_pregleda": {
+    "$date": "2023-10-05T08:50:00.000Z"
+  },
+  "kraj_pregleda": {
+    "$date": "2023-10-05T09:35:00.000Z"
+  },
+  "ima_izvestaj": false,
+  "cena": 3000,
+  "__v": 0
+}]

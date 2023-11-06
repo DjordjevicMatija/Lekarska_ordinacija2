@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "650867a85ae99706f16c12f5"
+  },
+  "naziv": "kardiologija",
+  "pregledi": [
+    "EKG (elektrokardiogram)",
+    "Ehokardiografija (ultrazvuk srca)",
+    "Koronarna angiografija",
+    "Holter monitoring"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65086c025ae99706f16c12fa"
+  },
+  "naziv": "pedijatrija",
+  "pregledi": [
+    "Redovan pedijatrijski pregled",
+    "Vakcinacija i imunizacija",
+    "Razvojni pregledi novorođenčadi",
+    "dadsada"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65086e775ae99706f16c12fd"
+  },
+  "naziv": "ortopedija",
+  "pregledi": []
+},
+{
+  "_id": {
+    "$oid": "65086e965ae99706f16c12fe"
+  },
+  "naziv": "ginekologija",
+  "pregledi": []
+},
+{
+  "_id": {
+    "$oid": "65086ea55ae99706f16c1302"
+  },
+  "naziv": "dermatologija",
+  "pregledi": []
+},
+{
+  "_id": {
+    "$oid": "650a03477f9965ffe4addd18"
+  },
+  "naziv": "stomatologija",
+  "pregledi": [],
+  "__v": 0
+}]

@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "64f84e04352c33a28da8547a"
+  },
+  "kor_ime": "nata92",
+  "lozinka": "Nata@123",
+  "ime": "Natalija",
+  "prezime": "Perisic",
+  "adresa": "Arsenija Carnojevica 28",
+  "telefon": "065/588599",
+  "imejl": "nata92@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/default-profile.jpg",
+  "__v": 0,
+  "status": "u obradi"
+},
+{
+  "_id": {
+    "$oid": "6509adcb5ae99706f16c1321"
+  },
+  "kor_ime": "nata912",
+  "lozinka": "Nata@123",
+  "ime": "Natalija",
+  "prezime": "Perisic",
+  "adresa": "Arsenija Carnojevica 281",
+  "telefon": "065/588599",
+  "imejl": "nata912@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/default-profile.jpg",
+  "__v": 0,
+  "status": "odbijen"
+},
+{
+  "_id": {
+    "$oid": "6509adda5ae99706f16c1322"
+  },
+  "kor_ime": "nata922",
+  "lozinka": "Nata@123",
+  "ime": "Natalija",
+  "prezime": "Perisic",
+  "adresa": "Arsenija Carnojevica 282",
+  "telefon": "065/588599",
+  "imejl": "nata922@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/default-profile.jpg",
+  "__v": 0,
+  "status": "odbijen"
+},
+{
+  "_id": {
+    "$oid": "6509adf55ae99706f16c1323"
+  },
+  "kor_ime": "nata923",
+  "lozinka": "Nata@123",
+  "ime": "Natalija",
+  "prezime": "Perisic",
+  "adresa": "Arsenija Carnojevica 283",
+  "telefon": "065/588599",
+  "imejl": "nata923@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/default-profile.jpg",
+  "__v": 0,
+  "status": "odbijen"
+},
+{
+  "_id": {
+    "$oid": "6509ae035ae99706f16c1324"
+  },
+  "kor_ime": "nata924",
+  "lozinka": "Nata@123",
+  "ime": "Natalija",
+  "prezime": "Perisic",
+  "adresa": "Arsenija Carnojevica 284",
+  "telefon": "065/588599",
+  "imejl": "nata924@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/default-profile.jpg",
+  "__v": 0,
+  "status": "u obradi"
+},
+{
+  "_id": {
+    "$oid": "6509b4bd54205a3c4a30fa07"
+  },
+  "kor_ime": "peki",
+  "lozinka": "Peki@123",
+  "ime": "Peki",
+  "prezime": "Peki",
+  "adresa": "Peki",
+  "telefon": "066/666666",
+  "imejl": "peki@mail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/d900c8e89a44a37aa00185f3e1452b9d",
+  "status": "odbijen",
+  "__v": 0
+}]

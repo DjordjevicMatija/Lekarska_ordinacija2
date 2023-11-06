@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "64f713927ca7cc198bf53836"
+  },
+  "naziv": "EKG (elektrokardiogram)",
+  "trajanje_u_min": 15,
+  "cena": 750,
+  "specijalizacija": "kardiologija",
+  "lekari": [
+    "123545",
+    "789012"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64f713d67ca7cc198bf53838"
+  },
+  "naziv": "Ehokardiografija (ultrazvuk srca)",
+  "trajanje_u_min": 45,
+  "cena": 3000,
+  "specijalizacija": "kardiologija",
+  "lekari": [
+    "123545"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64f7144b7ca7cc198bf5383a"
+  },
+  "naziv": "Koronarna angiografija",
+  "trajanje_u_min": 180,
+  "cena": 75000,
+  "specijalizacija": "kardiologija",
+  "lekari": [
+    "123545",
+    "789012"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64f7145d7ca7cc198bf5383c"
+  },
+  "naziv": "Redovan pedijatrijski pregled",
+  "trajanje_u_min": 30,
+  "cena": 1500,
+  "specijalizacija": "pedijatrija",
+  "lekari": [
+    "567890"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64f7146a7ca7cc198bf5383e"
+  },
+  "naziv": "Vakcinacija i imunizacija",
+  "trajanje_u_min": 15,
+  "cena": 500,
+  "specijalizacija": "pedijatrija",
+  "lekari": [
+    "567890"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64f714727ca7cc198bf53840"
+  },
+  "naziv": "Razvojni pregledi novorođenčadi",
+  "trajanje_u_min": 60,
+  "cena": 3500,
+  "specijalizacija": "pedijatrija",
+  "lekari": [
+    "567890"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6509ed017053d35d7251bec7"
+  },
+  "naziv": "Holter monitoring",
+  "trajanje_u_min": 30,
+  "cena": 2500,
+  "specijalizacija": "kardiologija",
+  "lekari": [],
+  "__v": 0
+}]
