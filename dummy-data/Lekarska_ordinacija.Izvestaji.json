@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "64f859428a722d91980f9f0b"
+  },
+  "razlog_dolaska": "Curenje nosa i kašalj",
+  "dijagnoza": "Virusna infekcija gornjih disajnih puteva",
+  "datum_narednog_pregleda": {
+    "$date": "2023-09-13T00:00:00.000Z"
+  },
+  "datum_pregleda": {
+    "$date": "2023-08-03T10:30:00.000Z"
+  },
+  "specijalizacija": "pedijatrija",
+  "terapija": "Puno tečnosti, sirup za kašalj, nazalni sprej za nos",
+  "pacijent": "milan92",
+  "lekar": "567890",
+  "ime_lekara": "Ivana",
+  "prezime_lekara": "Ivić"
+},
+{
+  "_id": {
+    "$oid": "64f85a1c8a722d91980f9f0e"
+  },
+  "razlog_dolaska": "Bol u grudima i otežano disanje",
+  "dijagnoza": "Angina pektoris",
+  "datum_narednog_pregleda": {
+    "$date": "2023-09-10T00:00:00.000Z"
+  },
+  "datum_pregleda": {
+    "$date": "2023-09-01T14:30:00.000Z"
+  },
+  "specijalizacija": "kardiologija",
+  "terapija": "Beta-blokatori, nitroglicerin, promena ishrane",
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović"
+},
+{
+  "_id": {
+    "$oid": "64fa12fd63b73b31213eeaf4"
+  },
+  "pacijent": "milan92",
+  "lekar": "123545",
+  "ime_lekara": "Petar",
+  "prezime_lekara": "Petrović",
+  "specijalizacija": "kardiologija",
+  "razlog_dolaska": "Bol u grudima",
+  "dijagnoza": "Angina pektoris",
+  "terapija": "Beta-blokatori, nitroglicerin",
+  "datum_pregleda": {
+    "$date": "2023-09-05T13:20:00.000Z"
+  },
+  "datum_narednog_pregleda": {
+    "$date": "2023-09-15T13:15:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650ae000c6e60f644bae3625"
+  },
+  "pacijent": "milan92",
+  "lekar": "567890",
+  "ime_lekara": "Ivana",
+  "prezime_lekara": "Ivić",
+  "specijalizacija": "pedijatrija",
+  "razlog_dolaska": "Bolest",
+  "dijagnoza": "Sizofrenija",
+  "terapija": "Laza Lazarevic",
+  "datum_pregleda": {
+    "$date": "2023-09-07T06:00:00.000Z"
+  },
+  "datum_narednog_pregleda": {
+    "$date": "2023-09-30T12:00:00.000Z"
+  },
+  "__v": 0
+}]

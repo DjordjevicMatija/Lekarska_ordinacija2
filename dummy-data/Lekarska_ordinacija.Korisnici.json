@@ -1,0 +1,168 @@
+[{
+  "_id": {
+    "$oid": "64ea5e59e18d3c32eff1d27b"
+  },
+  "kor_ime": "pera",
+  "lozinka": "Pera@1234",
+  "ime": "Petar",
+  "prezime": "Petrović",
+  "adresa": "Bulevar umetnosti 15",
+  "telefon": "062/313313",
+  "imejl": "pera72@gmail.com",
+  "licenca": "123545",
+  "specijalizacija": "kardiologija",
+  "ogranak": "kardiologija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/8e21c8db50f40cba701c6166999965ca"
+},
+{
+  "_id": {
+    "$oid": "64eb7b49d31d767322715bab"
+  },
+  "kor_ime": "drjovanovic",
+  "lozinka": "Jovana@123",
+  "ime": "Jovana",
+  "prezime": "Jovanović",
+  "adresa": "Gospodar Jovanova 456",
+  "telefon": "060/2345678",
+  "imejl": "dr.jovanovic@example.com",
+  "licenca": "789012",
+  "specijalizacija": "kardiologija",
+  "ogranak": "kardiologija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/jovana.jpeg"
+},
+{
+  "_id": {
+    "$oid": "64eb7b49d31d767322715bac"
+  },
+  "kor_ime": "drmilic",
+  "lozinka": "Mm1@c2e4g",
+  "ime": "Milica",
+  "prezime": "Milić",
+  "adresa": "Kralja Petra 789",
+  "telefon": "060/3456789",
+  "imejl": "dr.milic@example.com",
+  "licenca": "345678",
+  "specijalizacija": "ortopedija",
+  "ogranak": "ortopedija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/milica.jpeg"
+},
+{
+  "_id": {
+    "$oid": "64eb7b49d31d767322715bad"
+  },
+  "kor_ime": "drpavlovic",
+  "lozinka": "Pp1@v7z9x",
+  "ime": "Pavle",
+  "prezime": "Pavlović",
+  "adresa": "Cara Dušana 234",
+  "telefon": "060/4567890",
+  "imejl": "dr.pavlovic@example.com",
+  "licenca": "901234",
+  "specijalizacija": "ginekologija",
+  "ogranak": "ginekologija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/pavle.jpeg"
+},
+{
+  "_id": {
+    "$oid": "64eb7b49d31d767322715bae"
+  },
+  "kor_ime": "drivic",
+  "lozinka": "Ii1@v9x3z",
+  "ime": "Ivana",
+  "prezime": "Ivić",
+  "adresa": "Nemanjina 567",
+  "telefon": "060/5678901",
+  "imejl": "dr.ivic@example.com",
+  "licenca": "567890",
+  "specijalizacija": "pedijatrija",
+  "ogranak": "pedijatrija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/ivana.jpeg"
+},
+{
+  "_id": {
+    "$oid": "64ecbbaff69f91b39a9f5ad0"
+  },
+  "kor_ime": "maja87",
+  "lozinka": "Maj@p4c1j3nt",
+  "ime": "Maja",
+  "prezime": "Janković",
+  "adresa": "Vojvode Stepe 12",
+  "telefon": "060/1111222",
+  "imejl": "maja.jankovic@example.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/maja.jpeg"
+},
+{
+  "_id": {
+    "$oid": "64ecbbaff69f91b39a9f5ad1"
+  },
+  "kor_ime": "milan92",
+  "lozinka": "Milan@123",
+  "ime": "Milan",
+  "prezime": "Petrović",
+  "adresa": "Bulevar Oslobođenja 45",
+  "telefon": "060/2222333",
+  "imejl": "milan.petrovic@example.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/e441f202cda50471fa2447b99f2b2d1e"
+},
+{
+  "_id": {
+    "$oid": "64ef8a557697347fe3558e59"
+  },
+  "kor_ime": "admin",
+  "lozinka": "Admin@123",
+  "tip": "menadzer"
+},
+{
+  "_id": {
+    "$oid": "650979bc5ae99706f16c130d"
+  },
+  "kor_ime": "drmarkovic",
+  "lozinka": "Mm1@rko0v",
+  "ime": "Marko",
+  "prezime": "Marković",
+  "adresa": "Bulevar Kralja Aleksandra 123",
+  "telefon": "060/1234567",
+  "imejl": "dr.markovic@example.com",
+  "licenca": "123456",
+  "specijalizacija": "dermatologija",
+  "ogranak": "dermatologija",
+  "tip": "lekar",
+  "slika": "http://localhost:4000/uploads/marko.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6509b44e54205a3c4a30f9fa"
+  },
+  "kor_ime": "zare123",
+  "lozinka": "Z@re1234",
+  "ime": "Zarko",
+  "prezime": "Zarković",
+  "adresa": "Bulevar umetnosti 32",
+  "telefon": "025/616516",
+  "imejl": "zare@gmail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/d180079ea5d7d6efa428373e8155582d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650adf44c6e60f644bae3605"
+  },
+  "kor_ime": "miki",
+  "lozinka": "Miki@123",
+  "ime": "Miki",
+  "prezime": "Milan",
+  "adresa": "Miki Milane 50",
+  "telefon": "062/565656",
+  "imejl": "mikicar123@mail.com",
+  "tip": "pacijent",
+  "slika": "http://localhost:4000/uploads/284ff3d46515952fb684c5e17b62f503",
+  "__v": 0
+}]
