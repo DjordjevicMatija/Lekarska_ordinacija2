@@ -16,7 +16,7 @@ app.use((0, cors_1.default)()); //zato sto imamo razlicite portove
 app.use(express_1.default.json());
 app.use('/uploads', express_1.default.static('uploads'));
 //konekcija sa bazom
-mongoose_1.default.connect('mongodb://localhost:27017/Lekarska_ordinacija');
+mongoose_1.default.connect('mongodb://localhost:27017/Lekarska_ordinacija'); //promeniti naziv baze podataka
 const connection = mongoose_1.default.connection;
 connection.once('open', () => {
     console.log('db connected');
